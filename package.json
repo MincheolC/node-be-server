@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "watch": "nodemon src/index.js",
-    "db:create": "npx sequelize-cli model:create --name",
+    "db:create": "npx sequelize-cli model:generate --name",
     "db:create:migration": "npx sequelize-cli migration:generate --name",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:undo": "npx sequelize-cli db:migrate:undo"

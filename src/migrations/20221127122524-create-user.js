@@ -1,8 +1,11 @@
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
+
+const tableName = "users";
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("users", {
+    await queryInterface.createTable(tableName, {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -34,14 +37,18 @@ module.exports = {
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.literal(
+          "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ),
       },
     });
   },
   async down(queryInterface, _Sequelize) {
-    await queryInterface.dropTable("Users");
+    await queryInterface.dropTable(tableName);
   },
 };

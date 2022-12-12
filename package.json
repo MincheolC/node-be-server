@@ -9,8 +9,12 @@
     "watch": "nodemon src/index.js",
     "db:create": "npx sequelize-cli model:generate --name",
     "db:create:migration": "npx sequelize-cli migration:generate --name",
+    "db:create:seed": "npx sequelize-cli seed:generate --name",
     "db:migrate": "npx sequelize-cli db:migrate",
-    "db:undo": "npx sequelize-cli db:migrate:undo"
+    "db:migrate:seed": "npx sequelize-cli db:seed:all",
+    "db:undo": "npx sequelize-cli db:migrate:undo",
+    "db:undo:all": "npx sequelize-cli db:migrate:undo:all",
+    "db:undo:all:seed": "npx sequelize-cli db:seed:undo:all"
   },
   "repository": {
     "type": "git",
